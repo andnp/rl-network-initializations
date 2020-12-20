@@ -1,0 +1,14 @@
+{
+    "agent": "NonlinearQ",
+    "problem": "CartPole",
+    "episodes": 200,
+    "max_steps": 500,
+    "metaParameters": {
+        "epsilon": [0.0],
+
+        "layers": [
+            {"type": "fc", "act": "relu", "units": 32},
+            {"type": "fc", "act": "relu", "units": 32}
+        ]
+    }
+}

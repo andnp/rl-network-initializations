@@ -21,7 +21,9 @@ class OneStepWrapper(BaseAgent):
     def step(self, r, sp):
         xp = self.rep.encode(sp)
 
-        ap = self.agent.update(self.x, self.a, xp, r, self.gamma)
+        self.agent.update(self.x, self.a, xp, r, self.gamma)
+
+        ap = self.agent.selectAction(xp)
 
         self.s = sp
         self.a = ap
@@ -35,3 +37,4 @@ class OneStepWrapper(BaseAgent):
         self.agent.update(self.x, self.a, self.x, r, gamma)
 
         # reset agent here if necessary (e.g. to clear traces)
+        self.agent.cleanup()

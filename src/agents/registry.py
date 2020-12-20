@@ -1,7 +1,7 @@
-from agents.SARSA import SARSA
+from agents.NonlinearQ import NonlinearQ
 
 def getAgent(name):
-    if name == 'SARSA':
-        return SARSA
+    if name == 'NonlinearQ':
+        return NonlinearQ
 
     raise NotImplementedError()

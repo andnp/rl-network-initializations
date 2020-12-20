@@ -2,7 +2,7 @@ from experiment.ExperimentModel import ExperimentModel
 from src.agents.registry import getAgent
 
 class BaseProblem:
-    def __init__(self, exp: ExperimentModel, idx: int):
+    def __init__(self, exp: ExperimentModel, idx: int, seed: int):
         self.exp = exp
         self.idx = idx
 
@@ -14,7 +14,8 @@ class BaseProblem:
         self.rep = None
         self.gamma = None
 
-        self.seed = exp.getRun(idx)
+        self.seed = seed
+        self.agent_init_seed = exp.getRun(idx)
 
         self.features = 0
         self.actions = 0
@@ -30,5 +31,5 @@ class BaseProblem:
 
     def getAgent(self):
         Agent = getAgent(self.exp.agent)
-        self.agent = Agent(self.features, self.actions, self.params, self.seed)
+        self.agent = Agent(self.features, self.actions, self.params, self.seed, self.agent_init_seed)
         return self.agent

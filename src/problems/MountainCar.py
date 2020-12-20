@@ -3,8 +3,8 @@ from src.environments.MountainCar import MountainCar as MCEnv
 from PyFixedReps.TileCoder import TileCoder
 
 class MountainCar(BaseProblem):
-    def __init__(self, exp, idx):
-        super().__init__(exp, idx)
+    def __init__(self, exp, idx, seed):
+        super().__init__(exp, idx, seed)
         self.env = MCEnv(self.seed)
         self.actions = 3
 
